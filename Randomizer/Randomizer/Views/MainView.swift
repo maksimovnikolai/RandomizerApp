@@ -31,6 +31,7 @@ final class MainView: UIView {
 extension MainView {
     
     private func commonInit() {
+        backgroundColor = .systemBackground
         configureStackView()
         setupConstraintsАForRandomValueLabel()
         setupConstraintsForButton()

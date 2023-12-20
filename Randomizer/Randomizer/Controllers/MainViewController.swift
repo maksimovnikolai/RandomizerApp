@@ -17,13 +17,18 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         configureNavBar()
     }
     
     private func configureNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Random Number"
+        setupRightBarButton()
+    }
+    
+    private func setupRightBarButton() {
+        let settingsButton = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: nil)
+        navigationItem.rightBarButtonItem = settingsButton
     }
     
     
