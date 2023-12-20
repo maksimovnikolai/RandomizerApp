@@ -9,8 +9,22 @@ import UIKit
 
 final class MainViewController: UIViewController {
     
+    private let mainView = MainView()
+    
+    override func loadView() {
+        view = mainView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        view.backgroundColor = .systemBackground
+        configureNavBar()
     }
+    
+    private func configureNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Random Number"
+    }
+    
+    
 }
