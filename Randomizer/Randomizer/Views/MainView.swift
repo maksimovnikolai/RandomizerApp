@@ -7,13 +7,19 @@
 
 import UIKit
 
+protocol SettingsViewControllerDelegate: AnyObject {
+    func setNewValues(minimum: String, maksimum: String)
+}
+
 final class MainView: UIView {
+    
+    lazy var minimumNumberLabel = makeLabel(with: "0", size: .boldSystemFont(ofSize: 50))
+    lazy var maximumNumberLabel = makeLabel(with: "100", size: .boldSystemFont(ofSize: 50))
     
     private lazy var fromTextLabel = makeLabel(with: "from", size: .boldSystemFont(ofSize: 29))
     private lazy var toTextLabel = makeLabel(with: "to", size: .boldSystemFont(ofSize: 29))
-    private lazy var fromNumberLabel = makeLabel(with: "0", size: .boldSystemFont(ofSize: 50))
-    private lazy var toNumberLabel = makeLabel(with: "100", size: .boldSystemFont(ofSize: 50))
     private lazy var randomValueLabel = makeLabel(with: "?", size: .boldSystemFont(ofSize: 98))
+    
     private lazy var stackView = makeStackView()
     private lazy var getResultButton = makeButton(withTitle: "Get Result")
     
@@ -40,9 +46,25 @@ extension MainView {
     private func configureStackView() {
         setupConstraintsForStackView()
         stackView.addArrangedSubview(fromTextLabel)
-        stackView.addArrangedSubview(fromNumberLabel)
+        stackView.addArrangedSubview(minimumNumberLabel)
         stackView.addArrangedSubview(toTextLabel)
-        stackView.addArrangedSubview(toNumberLabel)
+        stackView.addArrangedSubview(maximumNumberLabel)
+    }
+    
+    @objc
+    private func getRandomNumber() {
+        let minimumNumber = Int(minimumNumberLabel.text ?? "") ?? 0
+        let maximumNumber = Int(maximumNumberLabel.text ?? "") ?? 20
+        randomValueLabel.text = String(Int.random(in: minimumNumber...maximumNumber))
+    }
+}
+
+// MARK: SettingsViewControllerDelegate
+extension MainView: SettingsViewControllerDelegate {
+    
+    func setNewValues(minimum: String, maksimum: String) {
+        minimumNumberLabel.text = minimum
+        maximumNumberLabel.text = maksimum
     }
 }
 
@@ -73,6 +95,7 @@ extension MainView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.configuration = .filled()
         button.configuration?.title = title
+        button.addTarget(self, action: #selector(getRandomNumber), for: .touchUpInside)
         return button
     }
 }

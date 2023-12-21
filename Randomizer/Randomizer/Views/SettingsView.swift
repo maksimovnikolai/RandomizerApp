@@ -9,15 +9,14 @@ import UIKit
 
 final class SettingsView: UIView {
     
+    lazy var minimumValueTF = makeTextField(placeholder: "Minimum value")
+    lazy var maximumValueTF = makeTextField(placeholder: "Maximum value")
+
+    lazy var saveButton = makeButton(withTitle: "Save")
+    lazy var cancelButton = makeButton(withTitle: "Cancel", textColor: .red)
+    
     private lazy var textFieldsStackView = makeStackView(axis: .vertical)
     private lazy var buttonsStackView = makeStackView(axis: .vertical)
-    
-    private lazy var minimumValueTF = makeTextField(placeholder: "Minimum value")
-    private lazy var maximumValueTF = makeTextField(placeholder: "Maximum value")
-    
-    private lazy var saveButton = makeButton(withTitle: "Save")
-    private lazy var cancelButton = makeButton(withTitle: "Cancel", textColor: .red)
-    
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -36,7 +35,6 @@ extension SettingsView {
         backgroundColor = .systemBackground
         configureTextFieldStackView()
         configureButtonStackView()
-       
     }
     
     private func configureTextFieldStackView() {
@@ -68,10 +66,10 @@ extension SettingsView {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = placeholder
+        textField.keyboardType = .decimalPad
         textField.borderStyle = .roundedRect
         return textField
     }
-    
     
     private func makeButton(withTitle title: String, textColor: UIColor? = nil) -> UIButton {
         let button = UIButton()

@@ -27,9 +27,16 @@ final class MainViewController: UIViewController {
     }
     
     private func setupRightBarButton() {
-        let settingsButton = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: nil)
+        let settingsButton = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(openSettingsScreen))
         navigationItem.rightBarButtonItem = settingsButton
     }
     
-    
+    @objc
+    private func openSettingsScreen() {
+        let settingsVC = SettingsViewController()
+        settingsVC.settingsViewDelegate = mainView
+        settingsVC.minimumValue = mainView.minimumNumberLabel.text
+        settingsVC.maximumValue = mainView.maximumNumberLabel.text
+        navigationController?.pushViewController(settingsVC, animated: true)
+    }
 }

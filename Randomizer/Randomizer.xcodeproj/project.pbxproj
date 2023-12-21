@@ -14,6 +14,7 @@
 		AD52F2F82B325E7D000521F6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD52F2F72B325E7D000521F6 /* MainViewController.swift */; };
 		AD52F2FB2B3261CD000521F6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD52F2FA2B3261CD000521F6 /* MainView.swift */; };
 		AD52F2FD2B332AD8000521F6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD52F2FC2B332AD8000521F6 /* SettingsViewController.swift */; };
+		AD52F2FF2B332CB5000521F6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD52F2FE2B332CB5000521F6 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AD52F2F72B325E7D000521F6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AD52F2FA2B3261CD000521F6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		AD52F2FC2B332AD8000521F6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AD52F2FE2B332CB5000521F6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				AD52F2FA2B3261CD000521F6 /* MainView.swift */,
+				AD52F2FE2B332CB5000521F6 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				AD52F2F82B325E7D000521F6 /* MainViewController.swift in Sources */,
 				AD52F2FB2B3261CD000521F6 /* MainView.swift in Sources */,
 				AD52F2E02B325CAE000521F6 /* AppDelegate.swift in Sources */,
+				AD52F2FF2B332CB5000521F6 /* SettingsView.swift in Sources */,
 				AD52F2FD2B332AD8000521F6 /* SettingsViewController.swift in Sources */,
 				AD52F2E22B325CAE000521F6 /* SceneDelegate.swift in Sources */,
 			);
