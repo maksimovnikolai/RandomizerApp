@@ -9,11 +9,11 @@ import UIKit
 
 final class SettingsView: UIView {
     
-    lazy var minimumValueTF = makeTextField(placeholder: "Minimum value")
-    lazy var maximumValueTF = makeTextField(placeholder: "Maximum value")
+    lazy var minimumValueTF = makeTextField(placeholder: "Минимальное число")
+    lazy var maximumValueTF = makeTextField(placeholder: "Максимальное число")
 
-    lazy var saveButton = makeButton(withTitle: "Save")
-    lazy var cancelButton = makeButton(withTitle: "Cancel", textColor: .red)
+    lazy var saveButton = makeButton(withTitle: "Сохранить")
+    lazy var cancelButton = makeButton(withTitle: "Выйти", textColor: .red)
     
     private lazy var textFieldsStackView = makeStackView(axis: .vertical)
     private lazy var buttonsStackView = makeStackView(axis: .vertical)

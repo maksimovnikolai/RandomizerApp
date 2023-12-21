@@ -22,12 +22,13 @@ final class MainViewController: UIViewController {
     
     private func configureNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "Random Number"
+        navigationItem.title = "Случайное Число"
+        navigationItem.backButtonTitle = ""
         setupRightBarButton()
     }
     
     private func setupRightBarButton() {
-        let settingsButton = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(openSettingsScreen))
+        let settingsButton = UIBarButtonItem(title: "Настройки", style: .plain, target: self, action: #selector(openSettingsScreen))
         navigationItem.rightBarButtonItem = settingsButton
     }
     

@@ -16,12 +16,12 @@ final class MainView: UIView {
     lazy var minimumNumberLabel = makeLabel(with: "0", size: .boldSystemFont(ofSize: 50))
     lazy var maximumNumberLabel = makeLabel(with: "100", size: .boldSystemFont(ofSize: 50))
     
-    private lazy var fromTextLabel = makeLabel(with: "from", size: .boldSystemFont(ofSize: 29))
-    private lazy var toTextLabel = makeLabel(with: "to", size: .boldSystemFont(ofSize: 29))
+    private lazy var fromTextLabel = makeLabel(with: "от", size: .boldSystemFont(ofSize: 29))
+    private lazy var toTextLabel = makeLabel(with: "до", size: .boldSystemFont(ofSize: 29))
     private lazy var randomValueLabel = makeLabel(with: "?", size: .boldSystemFont(ofSize: 98))
     
     private lazy var stackView = makeStackView()
-    private lazy var getResultButton = makeButton(withTitle: "Get Result")
+    private lazy var getResultButton = makeButton(withTitle: "Получить число")
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
