@@ -66,8 +66,9 @@ extension SettingsView {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = placeholder
-        textField.keyboardType = .decimalPad
+        textField.keyboardType = .numberPad
         textField.borderStyle = .roundedRect
+        textField.clearsOnBeginEditing = true
         return textField
     }
     
