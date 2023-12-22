@@ -15,8 +15,13 @@ final class SettingsView: UIView {
     lazy var saveButton = makeButton(withTitle: "Сохранить")
     lazy var cancelButton = makeButton(withTitle: "Выйти", textColor: .red)
     
+    private lazy var minimumValueLabel = makeLabel(withTitle: "Минимальное значение")
+    private lazy var maximumValueLabel = makeLabel(withTitle: "Максимальное значение")
+    
     private lazy var textFieldsStackView = makeStackView(axis: .vertical)
     private lazy var buttonsStackView = makeStackView(axis: .vertical)
+    private lazy var minValueStackView = makeStackView(axis: .vertical)
+    private lazy var maxValueStackView = makeStackView(axis: .vertical)
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -33,15 +38,17 @@ extension SettingsView {
     
     private func commonInit() {
         backgroundColor = .systemBackground
+        configureMinValueStackView()
+        configureMaxValueStackView()
         configureTextFieldStackView()
         configureButtonStackView()
     }
     
     private func configureTextFieldStackView() {
         setupConstraintsForTextFieldStackView()
-        textFieldsStackView.spacing = 24
-        textFieldsStackView.addArrangedSubview(minimumValueTF)
-        textFieldsStackView.addArrangedSubview(maximumValueTF)
+        textFieldsStackView.spacing = 20
+        textFieldsStackView.addArrangedSubview(minValueStackView)
+        textFieldsStackView.addArrangedSubview(maxValueStackView)
     }
     
     private func configureButtonStackView() {
@@ -49,6 +56,18 @@ extension SettingsView {
         buttonsStackView.spacing = 8
         buttonsStackView.addArrangedSubview(saveButton)
         buttonsStackView.addArrangedSubview(cancelButton)
+    }
+    
+    private func configureMinValueStackView() {
+        minValueStackView.spacing = 3
+        minValueStackView.addArrangedSubview(minimumValueLabel)
+        minValueStackView.addArrangedSubview(minimumValueTF)
+    }
+    
+    private func configureMaxValueStackView() {
+        maxValueStackView.spacing = 3
+        maxValueStackView.addArrangedSubview(maximumValueLabel)
+        maxValueStackView.addArrangedSubview(maximumValueTF)
     }
 }
 
@@ -60,6 +79,15 @@ extension SettingsView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = axis
         return stackView
+    }
+    
+    private func makeLabel(withTitle title: String) -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .systemGray
+        label.font = .preferredFont(forTextStyle: .subheadline)
+        label.text = title
+        return label
     }
     
     private func makeTextField(placeholder: String) -> UITextField {
@@ -99,7 +127,7 @@ extension SettingsView {
         addSubview(buttonsStackView)
         NSLayoutConstraint.activate([
             buttonsStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            buttonsStackView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            buttonsStackView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 50),
         ])
     }
 }
